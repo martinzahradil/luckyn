@@ -1,16 +1,17 @@
 package com.zahman.luckyn.ticket;
 
+import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.zahman.luckyn.numbergen.NumberGenerator;
 
 public class Ticket {
   private final static Logger LOGGER = LoggerFactory.getLogger(Ticket.class);
   private int sizeOftArray;
   private int numberOfTips;
-  private int[] tips;
+  private Set<Integer> tips;
   private long id;
   private static long count;
+ 
 
 
   public Ticket(int sizeOftArray, int numberOfTips) {
@@ -19,16 +20,15 @@ public class Ticket {
         numberOfTips);
     this.sizeOftArray = sizeOftArray;
     this.numberOfTips = numberOfTips;
-    tips = new int[numberOfTips];
     count++;
     id = count;
   }
 
-  public int[] getTips() {
+  public Set<Integer> getTips() {
     return tips;
   }
 
-  public void setTips(int[] tips) {
+  public void setTips(Set<Integer> tips) {
     this.tips = tips;
   }
 
@@ -52,5 +52,8 @@ public class Ticket {
     return id;
   }
 
+  
+
+ 
 
 }

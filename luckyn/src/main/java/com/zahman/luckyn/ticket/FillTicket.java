@@ -11,23 +11,17 @@ public class FillTicket {
   private final static Logger LOGGER = LoggerFactory.getLogger(NumberGenerator.class);
   private Set<Integer> usedNumbersTickets;
   private Set<Integer> usedNumberOneTicket;
-  private boolean repeatNumberForOtherTickets;
+
 
   public FillTicket() {
     super();
     usedNumbersTickets = new HashSet<>();
     usedNumberOneTicket = new HashSet<>();
-    repeatNumberForOtherTickets = true;
+
   }
 
-  public FillTicket(boolean repeatNumber) {
-    this();
-    usedNumbersTickets = new HashSet<>();
-    usedNumberOneTicket = new HashSet<>();
-    this.repeatNumberForOtherTickets = repeatNumber;
-  }
 
-  public void fillTickets(Ticket... tickets) {
+  public void fillTickets(boolean repeatNumberForOtherTickets, Ticket... tickets) {
     int temp;
     LOGGER.debug("Generate number for {} ticket ", tickets.length);
     for (Ticket t : tickets) {
@@ -47,7 +41,8 @@ public class FillTicket {
           usedNumbersTickets = new HashSet<>();
         }
       }
-      while (usedNumberOneTicket.size() < t.getTips().length);
+      while (usedNumberOneTicket.size() < t.getNumberOfTips());
+      t.setTips(usedNumberOneTicket);
       if (repeatNumberForOtherTickets) {
         LOGGER.debug("Used numbers deleted,Other ticket can contain same numbers like previous");
         usedNumbersTickets = new HashSet<>();
