@@ -1,6 +1,7 @@
 package com.zahman.luckyn.ticket;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -66,7 +67,9 @@ public class FillTicket {
 
   public void showTickets(List<Ticket> list) {
     for (Ticket t : list) {
-      LOGGER.debug("Ticket id {} have this values {}", t.getId(), t.getTips().toString());
+      ArrayList<Integer> intList = new ArrayList<>(t.getTips());
+      Collections.sort(intList);
+      LOGGER.debug("Ticket id {} have this values {}", t.getId(), intList.toString());
     }
 
   }
