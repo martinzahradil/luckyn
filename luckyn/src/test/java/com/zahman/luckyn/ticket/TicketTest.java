@@ -9,7 +9,7 @@ public class TicketTest {
   public void constructorTest() {
     Ticket ticket = new Ticket(49, 6);
     assertEquals(6, ticket.getNumberOfTips());
-    assertEquals(49, ticket.getSizeOftArray());
+    assertEquals(49, ticket.getNumberOfPosibilities());
 
 
   }

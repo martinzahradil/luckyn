@@ -6,22 +6,22 @@ import org.slf4j.LoggerFactory;
 
 public class Ticket {
   private final static Logger LOGGER = LoggerFactory.getLogger(Ticket.class);
-  private int sizeOftArray;
+  private int numberOfPosibilities;
   private int numberOfTips;
   private Set<Integer> tips;
   private long id;
   private static long count;
- 
 
 
-  public Ticket(int sizeOftArray, int numberOfTips) {
+
+  public Ticket(int numberOfPosibilities, int numberOfTips) {
     super();
-    LOGGER.debug("Creating ticket with size of play array {} and number of tips {}", sizeOftArray,
-        numberOfTips);
-    this.sizeOftArray = sizeOftArray;
+    this.numberOfPosibilities = numberOfPosibilities;
     this.numberOfTips = numberOfTips;
     count++;
     id = count;
+    LOGGER.debug("Creating ticket id {} with size of play array {} and number of tips {}", id,
+        numberOfPosibilities, numberOfTips);
   }
 
   public Set<Integer> getTips() {
@@ -32,12 +32,12 @@ public class Ticket {
     this.tips = tips;
   }
 
-  public int getSizeOftArray() {
-    return sizeOftArray;
+  public int getNumberOfPosibilities() {
+    return numberOfPosibilities;
   }
 
-  public void setSizeOftArray(int sizeOftArray) {
-    this.sizeOftArray = sizeOftArray;
+  public void setNumberOfPosibilities(int sizeOftArray) {
+    this.numberOfPosibilities = sizeOftArray;
   }
 
   public int getNumberOfTips() {
@@ -52,8 +52,6 @@ public class Ticket {
     return id;
   }
 
-  
 
- 
 
 }
